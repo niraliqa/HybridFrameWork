@@ -35,7 +35,6 @@ public class ManageCourses extends BaseClass {
 			course.AddNewCourse(System.getProperty("user.dir")+"/TestData/CourseThumbnail.png",name, descrip, Inst, pay );	
 	    }
 		
-		
 		Assert.assertTrue(course.checkCoursePresence());	
 		
 		Assert.assertTrue(course.checkCourseStatus());
