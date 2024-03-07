@@ -2,7 +2,9 @@ package com.Automation.pages;
 
 import java.security.PublicKey;
 
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTOutlinePr;
 
@@ -64,9 +66,20 @@ public class CoursesPage {
 	
 	public  boolean checkCoursePresence() {
 		
-		boolean Coursepresent=Utility.getElement(driver, courseVerify).isDisplayed();
+		boolean status=false;
 		
-		return Coursepresent;
+		try 
+		{
+			
+		 status=Utility.getElement(driver, courseVerify).isDisplayed();
+		 
+		}
+		catch (NoSuchElementException e) 
+		{
+			status=false;
+		}
+		
+		return status;
 	}
 	
 	public  boolean checkCourseStatus() {
